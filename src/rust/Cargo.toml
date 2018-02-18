@@ -1,0 +1,10 @@
+[package]
+name = "wasm-demo"
+version = "0.1.0"
+authors = ["gentoo90 <gentoo90@gmail.com>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = { git = 'https://github.com/alexcrichton/wasm-bindgen' }

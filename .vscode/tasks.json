@@ -4,16 +4,32 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "npm",
-            "script": "watch",
-            "problemMatcher": "$tsc-watch",
-            "isBackground": true,
+            "type": "process",
+            // "script": "compile",
+            "command": "npm",
+            "identifier": "buildTs",
+            "label": "Build Typescript",
+            "args": [
+                "run",
+                "compile"
+            ],
+            "problemMatcher": "$tsc",
             "presentation": {
                 "reveal": "never"
             },
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+            "dependsOn": "buildWasm"
+        },
+        {
+            "type": "process",
+            "command": "make",
+            "identifier": "buildWasm",
+            "label": "Build Wasm",
+            "options": {
+                "cwd": "${workspaceRoot}/src/rust"
             }
         }
     ]
